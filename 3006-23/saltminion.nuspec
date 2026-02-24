@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <!-- == PACKAGE SPECIFIC SECTION == -->
+    <id>saltminion</id>
+    <version>3006.23.0</version>
+    <owners>Derek Murawsky, Alex Clay, espoelstra, ArthurREGNARD</owners>
+
+    <!-- == SOFTWARE SPECIFIC SECTION == -->
+    <title>Salt Minion (Install)</title>
+    <authors>Salt Project</authors>
+    <projectUrl>https://www.saltproject.io</projectUrl>
+    <iconUrl>https://cdn.rawgit.com/barkingfoodog/ChocolateySaltMinion/7637618d3d3c498236573d111b9962effce916f1/saltminion/salt_icon.png</iconUrl>
+    <licenseUrl>https://github.com/saltstack/salt/blob/master/LICENSE</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectSourceUrl>https://github.com/saltstack/salt</projectSourceUrl>
+    <packageSourceUrl>https://github.com/barkingfoodog/ChocolateySaltMinion</packageSourceUrl>
+    <docsUrl>https://docs.saltproject.io/en/3006/contents.html</docsUrl>
+    <mailingListUrl>https://groups.google.com/forum/#!forum/salt-users</mailingListUrl>
+    <bugTrackerUrl>https://github.com/saltstack/salt/issues</bugTrackerUrl>
+    <tags>salt-minion saltminion salt saltstack minion admin</tags>
+    <summary>Install Salt-Minion for Windows (need to connect to Salt-Master)</summary>
+    <description>
+# What is SaltStack ?
+`SaltStack` is a revolutionary approach to infrastructure management that replaces complexity with speed.
+`SaltStack` is simple enough to get running in minutes, scalable enough to manage tens of thousands of servers, and fast enough to communicate with each system in seconds.
+
+# The Salt-Minion
+The `Salt-Minion` receives commands from the central `Salt-Master` and replies with the results of said commands.
+The `Salt-Minion` needs the `Salt-Master` to run correctly.
+
+# Package Parameters
+The following package parameters can be set:
+
+  * `/Python2`                    - No longer supported by SaltStack. Will be removed in future version of the package. 
+  * `/Master:[master]`            - A string value to set the IP address or hostname of the Salt-Master. _original installer value: `/master=`_
+  * `/MinionName:[minion-name]`   - A string value to set the Salt-Minion name. _original installer value: `/minion-name=`_
+  * `/MinionStart:[minion-start]` - 1 to start the service, else 0. _original installer value: `/start-minion=`_
+  * `/MinionStartDelayed`         - Present to have delay start. _original installer value: `/start-minion-delayed`_
+  * `/DefaultConfig`              - Present to overwrite the existing config file with the default. _original installer value: `/default-config`_
+  * `/CustomConfig:[config-path]` - Full path to a custom config file. _original installer value: `/custom-config=`_
+
+For more details on _original installer values_ : https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/windows.html#windows-nullsoft-exe-install-options
+
+To pass parameters, use `--params "''"` (e.g. `choco install saltminion [other options] --params="'/Master:myMaster /Python2'"`).
+To have choco remember parameters on upgrade, be sure to set `choco feature enable -n=useRememberedArgumentsForUpgrades`.
+    </description>
+    <releaseNotes>https://docs.saltproject.io/en/3006/topics/releases/3006.8.html</releaseNotes>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
